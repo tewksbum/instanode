@@ -1,18 +1,17 @@
 /**
  * Created by Dmitry on 03.06.2016
  */
-'use strict';
-const crypto = require('crypto');
-const path = require('path');
-const _ = require('lodash');
-const uuid = require('uuid');
-const request = require('request');
-const error = require('./error');
+var crypto = require('crypto');
+var path = require('path');
+var _ = require('lodash');
+var uuid = require('uuid');
+var request = require('request');
+var error = require('./error');
 
-const ig_sig_key = '9b3b9e55988c954e51477da115c58ae82dcae7ac01c735b4443a3c5923cb593a';
-const ig_sig_key_ver = 4;
-const agent = 'Instagram 8.0.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)';
-const apiUrl = 'https://i.instagram.com/api/v1';
+var ig_sig_key = '9b3b9e55988c954e51477da115c58ae82dcae7ac01c735b4443a3c5923cb593a';
+var ig_sig_key_ver = 4;
+var agent = 'Instagram 8.0.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)';
+var apiUrl = 'https://i.instagram.com/api/v1';
 
 this.apiCall = function(endPoint, post, cookies, callback) {
   var params = {
@@ -31,12 +30,12 @@ this.apiCall = function(endPoint, post, cookies, callback) {
     callback = post;
     post = null;
   }
-  
+
   if (post) {
     params.method = 'POST';
     params.form = post;
   }
-  
+
   if (typeof cookies === 'function') {
     callback = cookies;
     cookies = null;
@@ -89,7 +88,7 @@ this.encodeCookies = function(cookies) {
 };
 
 this.generateUUID = function(type) {
-  const ud = uuid.v4();
+  var ud = uuid.v4();
   return type ? ud : ud.replace('-', '');
 };
 
@@ -98,7 +97,7 @@ this.generateDeviceId = function(seed) {
 };
 
 this.generateSignature = function(data) {
-  const hash = crypto.createHmac('sha256', ig_sig_key).update(data).digest('hex');
+  var hash = crypto.createHmac('sha256', ig_sig_key).update(data).digest('hex');
   return  'ig_sig_key_version=' + ig_sig_key_ver + '&' +
       'signed_body=' + hash + '.' + encodeURIComponent(data);
 };

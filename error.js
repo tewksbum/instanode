@@ -1,8 +1,7 @@
 /**
  * Created by Dmitry on 03.06.2016
  */
-'use strict';
-const debug = true;
+var debug = true;
 
 class ErrorWrapper {
   constructor (error, originalError) {
