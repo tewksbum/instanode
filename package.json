@@ -1,14 +1,14 @@
 {
-  "name": "instanode",
+  "name": "tewksbum-instanode",
   "version": "0.0.4",
   "description": "Instagram api module with posting support",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha test/test.js"
   },
-  "author": "Aloyan Dmitry",
+  "author": "Marcus Tewksbury",
   "license": "MIT",
-  "repository": "https://github.com/WilixLead/instanode",
+  "repository": "https://github.com/tewksbum/instanode",
   "devDependencies": {
     "mocha": "^2.5.3",
     "should": "^9.0.0"
